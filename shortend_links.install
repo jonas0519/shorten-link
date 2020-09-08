@@ -1,0 +1,49 @@
+<?php 
+function shortend_links_schema(){
+    $schema['shortend_links'] = array(
+        'description' => 'The table for storing the shorten link data.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for shorten link.',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'long_link' => array(
+                'description' => 'long link.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'short_link' => array(
+                'description' => 'short link.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'uid' => array(
+				'description' => 'The {users}.uid that added',
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 0,
+			),
+			'counter' => array(
+				'description' => 'counter',
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => FALSE,
+				'default' => 0,
+			),
+            'created' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => 'Timestamp for when shrtened was created',
+			),
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}

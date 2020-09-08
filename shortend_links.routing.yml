@@ -1,0 +1,24 @@
+shortend_links.content:
+  path: '/shortened-link/{id}'
+  defaults:
+    _controller: '\Drupal\shortend_links\Controller\ShortendLinksController::content'
+    _title: 'Content'
+  requirements:
+    _permission: 'access content'
+    id: \d+
+
+shortend_links.shorten_link_form:
+  path: '/shortened-link'
+  defaults:
+    _form: 'Drupal\shortend_links\Form\ShortendLinkForm'
+    _title: 'Shorten Link Form'
+  requirements:
+    _permission: 'access content'
+
+shortend_links.redirect:
+  path: '/c/{dst}'
+  defaults:
+    _controller: '\Drupal\shortend_links\Controller\ShortendLinksController::customRedirect'
+    _title: 'Content'
+  requirements:
+    _permission: 'access content'
